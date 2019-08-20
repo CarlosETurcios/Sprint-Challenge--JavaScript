@@ -6,8 +6,8 @@
  * The last parameter accepts a callback
  * In the body of the function return the callback with the two parameters that you created
  */
-function consume(hello, dude, cb) {
-  return cb(hello, dude);
+function consume(arr1, arr2, cb) {
+  return cb(arr1, arr2);
 }
 
 /* Step 2: Create several functions to callback with consume();
@@ -15,26 +15,29 @@ function consume(hello, dude, cb) {
  * Create a function named multiply that returns the product of two numbers
  * Create a function named greeting that accepts a first and last name and returns "Hello first-name last-name, nice to meet you!"
  */
-let consume = function add() {
-  return hello + dude;
-};
-function multiply() {
-  return hello * dude;
+function add(x, y) {
+  return x + y;
 }
-function greeting() {
-  return `Hello ${hello} ${dude}, nice to meet you!`;
+
+function multiply(a, b) {
+  return a * b;
 }
+
+function greeting(name, lastName) {
+  return `Hello ${name} ${lastName}, nice to meet you!`;
+}
+
 /* Step 3: Check your work by un-commenting the following calls to consume(): */
-consume(2, 2, add); // 4
-consume(10, 16, multiply); // 160
-consume('Mary', 'Poppins', greeting); // Hello Mary Poppins, nice to meet you!
+console.log(consume(2, 2, add)); //4
+console.log(consume(10, 16, multiply)); //160
+console.log(consume('Mary', 'Poppins', greeting)); //Hello Mary Poppins, nice to meet you!
 
 // ==== Closures ====
 
 // Explain in your own words why `nestedfunction()` can access the variable `internal`.
 
 // Explanation:
-
+//because myFunction created its own scope any variable declared within that functions scope will be eclosed
 const external = "I'm outside the function";
 
 function myFunction() {
